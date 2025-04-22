@@ -1,13 +1,31 @@
+import 'package:ecommerceshoppingapp/screens/splash_Screen.dart';
+import 'package:ecommerceshoppingapp/theme/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+      statusBarBrightness: Brightness.light,
+    ),
+  );
+
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Center(child: Text("Hello Flutter")));
+    return MaterialApp(
+      title: 'Shopping',
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.lightTheme,
+
+      home: SplashScreen(),
+    );
   }
 }
