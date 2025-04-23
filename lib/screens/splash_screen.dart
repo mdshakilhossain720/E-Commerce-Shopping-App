@@ -137,6 +137,37 @@ class _SplashScreenState extends State<SplashScreen>
                       );
                     },
                   ),
+                  SizedBox(height: 20),
+                  AnimatedBuilder(
+                    animation: _controller,
+                    builder: (context, child) {
+                      return FadeTransition(
+                        opacity: _fadeAnimation,
+                        child: Column(
+                          children: [
+                            Text(
+                              "ShopEase",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                                 letterSpacing: 0.2,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              "Your one stop shop for all your shopping needs",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                               
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
                 ],
               ),
             ),
