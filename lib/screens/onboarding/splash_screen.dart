@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import 'package:ecommerceshoppingapp/screens/on_boarding.dart';
+import 'package:ecommerceshoppingapp/screens/onboarding/on_boarding.dart'
+    show OnBoardingScreen;
 import 'package:ecommerceshoppingapp/theme/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -150,7 +151,7 @@ class _SplashScreenState extends State<SplashScreen>
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 24,
-                                 letterSpacing: 0.2,
+                                letterSpacing: 0.2,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -159,7 +160,7 @@ class _SplashScreenState extends State<SplashScreen>
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16,
-                               
+
                                 fontWeight: FontWeight.normal,
                               ),
                             ),

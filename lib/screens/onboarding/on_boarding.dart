@@ -1,7 +1,7 @@
 import 'package:ecommerceshoppingapp/theme/theme.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/gradient_button.dart' show GradientButton;
+import '../../widgets/gradient_button.dart' show GradientButton;
 import 'welcome.dart';
 
 class OnBoardingScreen extends StatefulWidget {

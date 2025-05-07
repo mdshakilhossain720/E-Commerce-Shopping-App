@@ -1,7 +1,8 @@
-import 'package:ecommerceshoppingapp/screens/splash_Screen.dart';
 import 'package:ecommerceshoppingapp/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import 'screens/onboarding/splash_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
