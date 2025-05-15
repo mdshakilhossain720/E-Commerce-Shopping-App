@@ -137,7 +137,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => LoginScreen(),
+                                builder: (context) => LoginLayout(),
                               ),
                             );
                           }
