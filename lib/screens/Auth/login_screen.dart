@@ -94,7 +94,7 @@ class _LoginLayoutState extends State<LoginLayout> {
           ),
           Gap(20.h),
           CustomTextFormField(
-            name: 'email or phone',
+            name: 'emailphone',
             hintText: 'email or phone',
             textInputType: TextInputType.text,
             controller: phoneController,
