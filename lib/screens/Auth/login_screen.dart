@@ -1,6 +1,7 @@
 // ... same imports as before
 
-import 'package:ecommerceshoppingapp/common/custom_tetx_field.dart' show CustomTextFormField;
+import 'package:ecommerceshoppingapp/common/custom_tetx_field.dart'
+    show CustomTextFormField;
 import 'package:ecommerceshoppingapp/config/app_tetx_style.dart';
 import 'package:ecommerceshoppingapp/config/theme.dart';
 import 'package:ecommerceshoppingapp/utilis/global_function.dart';
@@ -10,6 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
 import '../../common/custom_button.dart';
+import 'signup_screen.dart';
 
 class LoginLayout extends StatefulWidget {
   const LoginLayout({super.key});
@@ -44,22 +46,29 @@ class _LoginLayoutState extends State<LoginLayout> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                 'Do not have an account?',
-                  style: AppTextStyle(context).bodyText.copyWith(
-                        fontWeight: FontWeight.w700,
-                      ),
+                  'Do not have an account?',
+                  style: AppTextStyle(
+                    context,
+                  ).bodyText.copyWith(fontWeight: FontWeight.w700),
                 ),
                 Gap(5.w),
                 GestureDetector(
-                  onTap: () => Navigator.pushNamed(context, '/register'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SignUpLayout(),
+                      ),
+                    );
+                  },
                   child: Text(
                     'sign up',
                     style: AppTextStyle(context).bodyText.copyWith(
-                          fontWeight: FontWeight.w700,
-                          color: colors(context).primaryColor,
-                        ),
+                      fontWeight: FontWeight.w700,
+                      color: colors(context).primaryColor,
+                    ),
                   ),
-                )
+                ),
               ],
             ),
           ),
@@ -69,9 +78,7 @@ class _LoginLayoutState extends State<LoginLayout> {
             key: formKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                buildBody(context),
-              ],
+              children: [buildBody(context)],
             ),
           ),
         ),
@@ -81,16 +88,17 @@ class _LoginLayoutState extends State<LoginLayout> {
 
   Widget buildBody(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.w)
-          .copyWith(bottom: 20.h, top: 40.h),
+      padding: EdgeInsets.symmetric(
+        horizontal: 20.w,
+      ).copyWith(bottom: 20.h, top: 40.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             'welcome back',
-            style: AppTextStyle(context)
-                .title
-                .copyWith(fontWeight: FontWeight.bold),
+            style: AppTextStyle(
+              context,
+            ).title.copyWith(fontWeight: FontWeight.bold),
           ),
           Gap(20.h),
           CustomTextFormField(
@@ -100,11 +108,12 @@ class _LoginLayoutState extends State<LoginLayout> {
             controller: phoneController,
             focusNode: fNodes[0],
             textInputAction: TextInputAction.next,
-            validator: (value) => GlobalFunction.commonValidator(
-              value: value!,
-              hintText: 'email or phone',
-              context: context,
-            ),
+            validator:
+                (value) => GlobalFunction.commonValidator(
+                  value: value!,
+                  hintText: 'email or phone',
+                  context: context,
+                ),
           ),
           Gap(20.h),
           CustomTextFormField(
@@ -127,25 +136,26 @@ class _LoginLayoutState extends State<LoginLayout> {
                 color: colors(context).hintTextColor,
               ),
             ),
-            validator: (value) => GlobalFunction.passwordValidator(
-              value: value!,
-              hintText: 'password',
-              context: context,
-            ),
+            validator:
+                (value) => GlobalFunction.passwordValidator(
+                  value: value!,
+                  hintText: 'password',
+                  context: context,
+                ),
           ),
           Gap(20.h),
           Align(
             alignment: Alignment.bottomRight,
             child: GestureDetector(
               onTap: () {
-              //   Navigator.pushNamed(
-              //   context,
-              //   Routes.recoverPassword,
-              //   arguments: true,
-              // );
+                //   Navigator.pushNamed(
+                //   context,
+                //   Routes.recoverPassword,
+                //   arguments: true,
+                // );
               },
               child: Text(
-               'Forgot password?',
+                'Forgot password?',
                 style: AppTextStyle(context).bodyText,
               ),
             ),
@@ -167,16 +177,11 @@ class _LoginLayoutState extends State<LoginLayout> {
             child: Padding(
               padding: EdgeInsets.only(top: 16.h),
               child: TextButton(
-                onPressed: () {
-                 
-                },
-                child: Text(
-                  'Skip',
-                  style: AppTextStyle(context).buttonText,
-                ),
+                onPressed: () {},
+                child: Text('Skip', style: AppTextStyle(context).buttonText),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
