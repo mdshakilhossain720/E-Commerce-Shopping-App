@@ -1,3 +1,4 @@
+import 'package:ecommerceshoppingapp/routes.dart';
 import 'package:ecommerceshoppingapp/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -28,12 +29,12 @@ class MyApp extends StatelessWidget {
       designSize: Size(375, 812), 
       minTextAdapt: true,
       builder: (context,child) {
-        return MaterialApp(
+        return MaterialApp.router(
           title: 'Shopping',
           debugShowCheckedModeBanner: false,
           theme: AppTheme.lightTheme,
         
-          home: SplashScreen(),
+          routerConfig: goRouter,
         );
       }
     );
