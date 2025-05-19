@@ -1,3 +1,4 @@
+import 'package:ecommerceshoppingapp/config/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,6 +28,16 @@ class _SignUpLayoutState extends State<SignUpLayout> {
 
   bool obscurePassword = true;
   bool obscureConfirmPassword = true;
+
+  final List<String> staticCountries = [
+  'Bangladesh',
+  'India',
+  'United States',
+  'Canada',
+  'United Kingdom',
+];
+
+String? selectedCountry;
 
   @override
   void dispose() {
@@ -101,6 +112,70 @@ class _SignUpLayoutState extends State<SignUpLayout> {
               context: context,
             ),
           ),
+          Gap(20.h),
+
+
+FormBuilderDropdown<String>(
+  name: 'country',
+  hint: Text('Select Country'),
+  validator: (value) {
+    if (value == null) {
+      return 'Please select a country';
+    }
+    return null;
+  },
+  onChanged: (value) {
+    setState(() {
+      selectedCountry = value;
+      // You can update `countryCode` manually based on selectedCountry if needed
+    });
+    debugPrint("Selected country: $selectedCountry");
+  },
+  items: staticCountries.map((country) {
+    return DropdownMenuItem(
+      value: country,
+      child: Text(country),
+    );
+  }).toList(),
+  decoration: InputDecoration(
+    hintStyle: AppTextStyle(context).bodyText.copyWith(
+          fontWeight: FontWeight.w500,
+          color: colors(context).hintTextColor,
+        ),
+    filled: true,
+    fillColor: colors(context).accentColor,
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10.r),
+      borderSide: BorderSide(
+        color: colors(context).hintTextColor ??
+            EcommerceAppColor.lightGray,
+      ),
+    ),
+    enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10.r),
+      borderSide: BorderSide(
+        color: colors(context).accentColor ??
+            EcommerceAppColor.offWhite,
+        width: 2,
+      ),
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: BorderSide(
+        color: colors(context).primaryColor ??
+            EcommerceAppColor.primary,
+        width: 1.5,
+      ),
+    ),
+    errorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: BorderSide(
+        color: colors(context).errorColor ??
+            EcommerceAppColor.red,
+      ),
+    ),
+  ),
+),
           Gap(20.h),
 
           /// Password
