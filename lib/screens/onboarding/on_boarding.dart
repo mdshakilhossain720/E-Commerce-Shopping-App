@@ -1,9 +1,9 @@
 import 'package:ecommerceshoppingapp/screens/Auth/login_screen.dart';
-import 'package:ecommerceshoppingapp/screens/dashBoard/dashboard.dart';
 import 'package:ecommerceshoppingapp/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/gradient_button.dart' show GradientButton;
+import '../dashBoard/dashboard.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -59,7 +59,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => DashboardScreen()),
+                  MaterialPageRoute(builder: (context) => DashBoardScreen()),
                 );
               },
               child: Text(
