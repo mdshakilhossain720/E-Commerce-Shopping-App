@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod/riverpod.dart';
 
-final bottomTabControllerProvider =
-    Provider<PageController>((ref) => PageController());
+final bottomTabControllerProvider = Provider<PageController>(
+  (ref) => PageController(),
+);
 
 // All State Provider
 final selectedTabIndexProvider = StateProvider<int>((ref) => 0);

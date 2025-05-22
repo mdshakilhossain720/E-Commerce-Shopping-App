@@ -3,7 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
-AppColors colors(context) => Theme.of(context).extension<AppColors>()!;
+AppColors colors(BuildContext context) {
+  final appColors = Theme.of(context).extension<AppColors>();
+  if (appColors == null) {
+    throw FlutterError(
+      'AppColors ThemeExtension is not found. Make sure it\'s added in ThemeData.extensions.',
+    );
+  }
+  return appColors;
+}
+
 ThemeData getAppTheme(
     {required BuildContext context, required bool isDarkTheme}) {
   AppColor appColor = AppColorManager.getColorClass(serviceName: 'serviceName');

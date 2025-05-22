@@ -7,14 +7,14 @@ import '../../utilis/global_function.dart';
 import '../../widgets/address_card.dart';
 import 'add_address.dart';
 
-class ManageAddressLayout extends StatefulWidget {
-  const ManageAddressLayout({super.key});
+class ManageAddressScreen extends StatefulWidget {
+  const ManageAddressScreen({super.key});
 
   @override
-  State<ManageAddressLayout> createState() => _ManageAddressLayoutState();
+  State<ManageAddressScreen> createState() => _ManageAddressLayoutState();
 }
 
-class _ManageAddressLayoutState extends State<ManageAddressLayout> {
+class _ManageAddressLayoutState extends State<ManageAddressScreen> {
   final List<AddAddress> mockAddresses = [
     AddAddress(
       id: 1,
@@ -45,27 +45,29 @@ class _ManageAddressLayoutState extends State<ManageAddressLayout> {
         children: [
           Divider(thickness: 10, color: colors(context).accentColor),
           Expanded(
-            child: mockAddresses.isEmpty
-                ? const Center(child: Text('No addresses found'))
-                : ListView.builder(
-                    itemCount: mockAddresses.length,
-                    itemBuilder: (context, index) {
-                      final address = mockAddresses[index];
-                      return Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 5.h),
-                        child: AddressCard(
-                          cardColor: GlobalFunction.getContainerColor(),
-                          showEditButton: true,
-                          onTap: () {},
-                          editTap: () {
-                            
-                            
-                          },
-                          address: address, appLocal: '',
-                        ),
-                      );
-                    },
-                  ),
+            child:
+                mockAddresses.isEmpty
+                    ? const Center(child: Text('No addresses found'))
+                    : ListView.builder(
+                      itemCount: mockAddresses.length,
+                      itemBuilder: (context, index) {
+                        final address = mockAddresses[index];
+                        return Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 20.w,
+                            vertical: 5.h,
+                          ),
+                          child: AddressCard(
+                            cardColor: GlobalFunction.getContainerColor(),
+                            showEditButton: true,
+                            onTap: () {},
+                            editTap: () {},
+                            address: address,
+                            appLocal: '',
+                          ),
+                        );
+                      },
+                    ),
           ),
         ],
       ),
@@ -87,7 +89,10 @@ class _ManageAddressLayoutState extends State<ManageAddressLayout> {
       child: CustomTransparentButton(
         buttonText: 'Add Address',
         onTap: () {
-         
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ManageAddressScreen()),
+          );
         },
         borderColor: colors(context).primaryColor,
         buttonTextColor: colors(context).primaryColor,
