@@ -2,6 +2,9 @@
 
 import 'package:flutter/material.dart';
 
+import '../home_page/home_page.dart';
+import '../profile_page/profile_screen.dart';
+
 class DashBoardScreen extends StatefulWidget {
   const DashBoardScreen({super.key});
 
@@ -13,10 +16,10 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
-    const Center(child: Text("Home Page")),
+    HomeScreen(),
     const Center(child: Text("Cart Page")),
     const Center(child: Text("Calendar Page")),
-    const Center(child: Text("Menu Page")),
+    ProfileScreen(),
   ];
 
   void _onItemTapped(int index) {
