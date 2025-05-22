@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../Auth/get_support.dart';
 import 'manage_address.dart';
 import 'notifaction_screen.dart';
+import 'profile.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -16,7 +18,16 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(height: 16),
             _buildHeader(),
             const SizedBox(height: 16),
-            _buildMenuItem(Icons.person_outline, 'My Profile'),
+            _buildMenuItem(
+              ontap: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProfileLayout(),
+                  ),
+                );
+              },
+              Icons.person_outline, 'My Profile'),
             _buildMenuItem(Icons.shopping_bag_outlined, 'Orders'),
             _buildMenuItem(
               ontap: () {
@@ -72,6 +83,16 @@ class ProfileScreen extends StatelessWidget {
             _buildMenuItem(Icons.lock_outline, 'Change Password'),
             _buildMenuItem(Icons.description_outlined, 'Terms & Conditions'),
             _buildMenuItem(Icons.privacy_tip_outlined, 'Privacy Policy'),
+            _buildMenuItem(
+              ontap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SupportLayout(),
+                  ),
+                );
+              },
+              Icons.support_outlined, 'Support'),
             const Spacer(),
             Padding(
               padding: const EdgeInsets.all(16.0),
