@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'notifaction_screen.dart';
+
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+  const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +19,14 @@ class ProfileScreen extends StatelessWidget {
             _buildMenuItem(Icons.shopping_bag_outlined, 'Orders'),
             _buildMenuItem(
               ontap: () {
-                Navigator.pushNamed(context, '/notification');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const NotificationScreen(),
+                  ),
+                );
               },
-              
+
               Icons.notifications_outlined,
               'Notifications',
               trailing: Container(
@@ -59,7 +66,7 @@ class ProfileScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: _buildMenuItem(Icons.logout, 'Log Out', color: Colors.red),
-            )
+            ),
           ],
         ),
       ),
@@ -83,7 +90,7 @@ class ProfileScreen extends StatelessWidget {
           children: [
             const CircleAvatar(
               radius: 32,
-              backgroundImage: AssetImage('assets/images/profile.jpg'),
+              backgroundImage: AssetImage('assets/images/facebook.png'),
             ),
             const SizedBox(width: 16),
             Column(
@@ -91,7 +98,11 @@ class ProfileScreen extends StatelessWidget {
               children: const [
                 Text(
                   'Abul Kalam',
-                  style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 SizedBox(height: 4),
                 Text(
@@ -99,20 +110,25 @@ class ProfileScreen extends StatelessWidget {
                   style: TextStyle(color: Colors.white70),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildMenuItem(IconData icon, String title, {Widget? trailing, Color color = Colors.black,
-    Function()? ontap}) {
+  Widget _buildMenuItem(
+    IconData icon,
+    String title, {
+    Widget? trailing,
+    Color color = Colors.black,
+    Function()? ontap,
+  }) {
     return ListTile(
       leading: Icon(icon, color: color),
       title: Text(title, style: TextStyle(color: color)),
       trailing: trailing ?? const Icon(Icons.chevron_right, color: Colors.grey),
-      onTap:ontap
+      onTap: ontap,
     );
   }
 }
