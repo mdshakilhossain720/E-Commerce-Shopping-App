@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'manage_address.dart';
 import 'notifaction_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -42,7 +43,16 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
             _buildMenuItem(Icons.favorite_border, 'Wishlist'),
-            _buildMenuItem(Icons.location_on_outlined, 'Manage Address'),
+            _buildMenuItem(
+              ontap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>ManageAddressLayout (),
+                  ),
+                );
+              },
+              Icons.location_on_outlined, 'Manage Address'),
             _buildMenuItem(
               Icons.language_outlined,
               'Language',

@@ -1,5 +1,9 @@
+import 'package:ecommerceshoppingapp/config/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+
+import '../config/app_color.dart';
 
 
 class GlobalFunction {
@@ -57,6 +61,13 @@ class GlobalFunction {
       return errorText(fieldName: hintText, context: context);
     }
     return null;
+  }
+
+   static Color getContainerColor() {
+    bool isDark = Hive.box(AppConstants.appSettingsBox)
+        .get(AppConstants.isDarkTheme, defaultValue: false);
+
+    return isDark ? EcommerceAppColor.black : EcommerceAppColor.white;
   }
 
   static String? phoneValidator({
