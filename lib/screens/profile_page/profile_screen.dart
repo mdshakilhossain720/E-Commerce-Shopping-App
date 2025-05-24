@@ -1,9 +1,12 @@
+import 'package:ecommerceshoppingapp/screens/Auth/change_password.dart';
 import 'package:flutter/material.dart';
 
 import '../Auth/get_support.dart';
 import 'manage_address.dart';
 import 'notifaction_screen.dart';
+import 'privacy_policy.dart';
 import 'profile.dart';
+import 'term_condition.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -19,15 +22,15 @@ class ProfileScreen extends StatelessWidget {
             _buildHeader(),
             const SizedBox(height: 16),
             _buildMenuItem(
-              ontap: (){
+              ontap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => ProfileLayout(),
-                  ),
+                  MaterialPageRoute(builder: (context) => ProfileLayout()),
                 );
               },
-              Icons.person_outline, 'My Profile'),
+              Icons.person_outline,
+              'My Profile',
+            ),
             _buildMenuItem(Icons.shopping_bag_outlined, 'Orders'),
             _buildMenuItem(
               ontap: () {
@@ -59,11 +62,13 @@ class ProfileScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) =>ManageAddressScreen (),
+                    builder: (context) => ManageAddressScreen(),
                   ),
                 );
               },
-              Icons.location_on_outlined, 'Manage Address'),
+              Icons.location_on_outlined,
+              'Manage Address',
+            ),
             _buildMenuItem(
               Icons.language_outlined,
               'Language',
@@ -80,9 +85,42 @@ class ProfileScreen extends StatelessWidget {
                 ],
               ),
             ),
-            _buildMenuItem(Icons.lock_outline, 'Change Password'),
-            _buildMenuItem(Icons.description_outlined, 'Terms & Conditions'),
-            _buildMenuItem(Icons.privacy_tip_outlined, 'Privacy Policy'),
+            _buildMenuItem(
+              ontap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChangePasswordLayout(),
+                  ),
+                );
+              },
+              Icons.lock_outline,
+              'Change Password',
+            ),
+            _buildMenuItem(
+              ontap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => TermConditionScreen(),
+                  ),
+                );
+              },
+              Icons.description_outlined,
+              'Terms & Conditions',
+            ),
+            _buildMenuItem(
+              ontap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PrivacyPolicyScreen(),
+                  ),
+                );
+              },
+              Icons.privacy_tip_outlined,
+              'Privacy Policy',
+            ),
             _buildMenuItem(
               ontap: () {
                 Navigator.push(
@@ -92,7 +130,9 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 );
               },
-              Icons.support_outlined, 'Support'),
+              Icons.support_outlined,
+              'Support',
+            ),
             const Spacer(),
             Padding(
               padding: const EdgeInsets.all(16.0),
