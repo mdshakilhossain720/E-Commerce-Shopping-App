@@ -147,7 +147,7 @@ class AddressCard extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border(
           top: BorderSide(
-            color: GlobalFunction.getContainerColor(),
+            color: Colors.grey.shade300,
             width: 2.0,
           ),
         ),

@@ -63,12 +63,12 @@ class GlobalFunction {
     return null;
   }
 
-   static Color getContainerColor() {
-    bool isDark = Hive.box(AppConstants.appSettingsBox)
-        .get(AppConstants.isDarkTheme, defaultValue: false);
+  //  static Color getContainerColor() {
+  //   bool isDark = Hive.box(AppConstants.appSettingsBox)
+  //       .get(AppConstants.isDarkTheme, defaultValue: false);
 
-    return isDark ? EcommerceAppColor.black : EcommerceAppColor.white;
-  }
+  //   return isDark ? EcommerceAppColor.black : EcommerceAppColor.white;
+  // }
 
   static String? phoneValidator({
     required String value,

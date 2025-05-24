@@ -3,12 +3,13 @@ import 'package:ecommerceshoppingapp/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import 'screens/onboarding/splash_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
@@ -17,6 +18,8 @@ void main() {
       statusBarBrightness: Brightness.light,
     ),
   );
+   
+  await Hive.initFlutter();
 
   runApp(ProviderScope(child: MyApp()));
 }
